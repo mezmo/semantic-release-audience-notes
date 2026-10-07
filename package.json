@@ -31,7 +31,6 @@
   "files": [
     "index.js",
     "lib/",
-    "bin/",
     "documentation/",
     "README.md",
     "LICENSE"
@@ -54,15 +53,27 @@
     "release": "npx semantic-release",
     "release:dry": "npm run release -- --no-ci --dry-run --branches=${BRANCH_NAME:-main}"
   },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "conventional-commits-filter": "^5.0.0",
+    "conventional-commits-parser": "^6.4.0",
+    "minimatch": "^10.0.1"
+  },
   "devDependencies": {
+    "@anthropic-ai/bedrock-sdk": "^0.33.5",
     "@mezmoinc/commitlint-config": "^1.1.1",
     "@mezmoinc/release-config-core": "^2.0.1",
+    "@semantic-release/release-notes-generator": "^14.1.1",
     "eslint": "^10.3.0",
     "eslint-config-logdna": "^8.0.1",
     "eslint-formatter-json-relative": "^0.1.0",
     "knip": "^6.35.1",
     "semantic-release": "^25.0.3",
     "tap": "^21.7.2"
+  },
+  "peerDependencies": {
+    "semantic-release": ">=24.0.0",
+    "@anthropic-ai/bedrock-sdk": "^0.33.5"
   },
   "tap": {
     "coverage-report": [
@@ -86,5 +97,10 @@
     "lines": 100,
     "branches": 100,
     "functions": 100
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/bedrock-sdk": {
+      "optional": true
+    }
   }
 }
