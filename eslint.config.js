@@ -19,4 +19,10 @@ export default defineConfig([
     , sourceType: 'module'
     }
   }
+, {
+    // The plugin reads the environment semantic-release hands it. Tests and the
+    // CLI start child processes, so they pass on the real one.
+    files: ['test/**/*.js', 'bin/**/*.js']
+  , rules: {'n/no-process-env': 'off'}
+  }
 ])
