@@ -60,7 +60,7 @@
     "eslint": "^10.3.0",
     "eslint-config-logdna": "^9.0.0",
     "eslint-formatter-json-relative": "^0.1.0",
-    "knip": "^6.35.1",
+    "knip": "^6.40.0",
     "semantic-release": "^25.0.3",
     "tap": "^21.8.0"
   },
