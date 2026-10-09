@@ -1,0 +1,14 @@
+{
+  "include": [
+    "lib/**/*.js",
+    "bin/**/*.js",
+    "test/**/*.js",
+    "*.js"
+  ],
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2024",
+    "checkJs": false
+  }
+}

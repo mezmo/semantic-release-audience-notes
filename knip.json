@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "test/unit/*.js",
+    "test/integration/*.js"
+  ],
+  "project": [
+    "lib/**/*.js!",
+    "bin/**/*.js!",
+    "test/**/*.js"
+  ],
+  "ignoreDependencies": [
+    "@mezmoinc/release-config-core"
+  ]
+}

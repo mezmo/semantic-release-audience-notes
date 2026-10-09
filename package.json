@@ -1,0 +1,90 @@
+{
+  "name": "@mezmoinc/semantic-release-audience-notes",
+  "version": "1.0.0",
+  "description": "Drop-in replacement for @semantic-release/release-notes-generator that writes human-readable, audience-targeted release notes with Claude",
+  "keywords": [
+    "semantic-release",
+    "semantic-release-plugin",
+    "release-notes",
+    "changelog",
+    "claude",
+    "anthropic"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mezmo/semantic-release-audience-notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mezmo/semantic-release-audience-notes/issues"
+  },
+  "homepage": "https://github.com/mezmo/semantic-release-audience-notes#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": "./index.js",
+  "main": "index.js",
+  "engines": {
+    "node": "^22.14.0 || >= 24.10.0"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/",
+    "documentation/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "commitlint": "commitlint-mzm --from origin/main --to HEAD --format=pretty --format=checkstyle",
+    "lint": "eslint",
+    "lint:fix": "npm run lint -- --fix",
+    "prelint:ci": "rm -f .eslint.json",
+    "lint:ci": "eslint -f json-relative > .eslint.json || true",
+    "tap": "tap",
+    "pretest": "rm -rf .tap .tap-out",
+    "pretest:ci": "rm -rf .tap .tap-out",
+    "test": "npm run lint && npm run knip && ./scripts/test-ci.sh",
+    "test:ci": "./scripts/test-ci.sh && npm run knip",
+    "tap:unit": "tap run test/unit",
+    "tap:integration": "tap run test/integration",
+    "knip": "knip",
+    "knip:production": "knip --production",
+    "release": "npx semantic-release",
+    "release:dry": "npm run release -- --no-ci --dry-run --branches=${BRANCH_NAME:-main}"
+  },
+  "devDependencies": {
+    "@mezmoinc/commitlint-config": "^1.1.1",
+    "@mezmoinc/release-config-core": "^2.0.1",
+    "eslint": "^10.3.0",
+    "eslint-config-logdna": "^8.0.1",
+    "eslint-formatter-json-relative": "^0.1.0",
+    "knip": "^6.35.1",
+    "semantic-release": "^25.0.3",
+    "tap": "^21.7.2"
+  },
+  "tap": {
+    "coverage-report": [
+      "text",
+      "text-summary",
+      "lcov",
+      "json",
+      "json-summary",
+      "html"
+    ],
+    "browser": false,
+    "output-file": ".tap-out",
+    "files": [
+      "test/unit",
+      "test/integration"
+    ],
+    "plugin": [
+      "!@tapjs/typescript"
+    ],
+    "statements": 100,
+    "lines": 100,
+    "branches": 100,
+    "functions": 100
+  }
+}
