@@ -35,6 +35,26 @@ audience under BREAKING CHANGES.
 
 The layout is exactly what release-notes-generator writes. Only the words are different.
 
+## CLI
+
+`audience-notes` renders the notes for any commit range without running a release. It runs the
+same code a release would, though the agent's wording varies from run to run.
+
+```sh
+# Check the range and the config. No model call, no cost.
+npx -p @mezmoinc/semantic-release-audience-notes audience-notes --from v1.4.0 --json
+
+# Render the notes for everything since v1.4.0.
+npx -p @mezmoinc/semantic-release-audience-notes audience-notes --from v1.4.0 --audience operators
+```
+
+Run it from the repository root. A real run needs `ANTHROPIC_API_KEY`, or
+`--provider bedrock --region <region>` with AWS credentials. Notes go to stdout and progress
+to stderr, so `> NOTES.md` captures just the document.
+
+[documentation/CLI.md](documentation/CLI.md) covers every flag, config files, output,
+credentials, recipes and troubleshooting.
+
 ## Output
 
 ### Presets
@@ -303,10 +323,13 @@ budget it sets.
   values, and releases full of behavior or breaking changes. `xhigh` and `max` read more
   around each change and cost more per run.
 
+To compare levels before changing one, run the [CLI](documentation/CLI.md#recipes) at both
+against a past release.
+
 ### Debugging a run
 
-`verbose: true`, or `AUDIENCE_NOTES_VERBOSE`, logs one line per turn, tool call and submission
-attempt:
+`verbose: true`, or `AUDIENCE_NOTES_VERBOSE`, or `--verbose`, logs one line per turn, tool call
+and submission attempt:
 
 ```
 turn 1: stop=tool_use in=25013 out=412
