@@ -1,6 +1,7 @@
 # Options
 
-Every option goes in the plugin's entry in the release config.
+Every option goes in the plugin's entry in the release config. The CLI accepts the same
+options through `--config`, and a few through flags (see [CLI.md](CLI.md#flags)).
 
 ```js
 ['@mezmoinc/semantic-release-audience-notes', {audience: 'operators', effort: 'medium'}]

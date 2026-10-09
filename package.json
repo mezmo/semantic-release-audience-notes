@@ -31,6 +31,7 @@
   "files": [
     "index.js",
     "lib/",
+    "bin/",
     "documentation/",
     "README.md",
     "LICENSE"
@@ -97,6 +98,9 @@
     "lines": 100,
     "branches": 100,
     "functions": 100
+  },
+  "bin": {
+    "audience-notes": "./bin/audience-notes.js"
   },
   "peerDependenciesMeta": {
     "@anthropic-ai/bedrock-sdk": {
