@@ -1,0 +1,28 @@
+# test artifacts
+.commitlint/
+.eslint*
+tmp/
+output/
+.tap
+.tap-out
+
+# IDE files
+.idea
+.vscode/
+*.swp
+*.vim
+.DS_Store
+
+# credentials
+.env
+.env.*
+!.env.example
+
+# dev files
+*.save
+*.tgz
+.npm
+.eslintcache/
+.node_repl_history
+node_modules
+npm-debug.log
