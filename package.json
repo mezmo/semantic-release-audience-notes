@@ -1,6 +1,6 @@
 {
   "name": "@mezmoinc/semantic-release-audience-notes",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Drop-in replacement for @semantic-release/release-notes-generator that writes human-readable, audience-targeted release notes with Claude",
   "keywords": [
     "semantic-release",
